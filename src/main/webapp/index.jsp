@@ -12,7 +12,7 @@
 	<div id="header">
 		<table width=100%>
 		<tr>
-		<td><img src="images/logo.png" alt="Mountain View" style="width:50px;height:50px;"></td>
+		<td><img src="images/logo.png" alt="GEA" style="width:50px;height:50px;"></td>
 		<td align=right  style="padding-right:40px">
 			
 				<a href="/GEA/HomePage">Home</a>
