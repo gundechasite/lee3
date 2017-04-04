@@ -36,21 +36,22 @@ public class ViewMyAdsView  extends SearchResultsAction {
 		 String sql = null;
 		
 		 try {
-				switch(screenCode) {
-					case "BT":  sql = "select * from  textbooksAds " + whereClause;
-								BT_Ads = DBUtility_TextBookUniform.getTextbookAdsList(sql, false, false);
-								break;
-					case "BU":  sql = "select * from  uniformAds " + whereClause; 
-								BU_Ads = DBUtility_TextBookUniform.getUniformAdsList(sql, false, false);
-								break;
-					case "ST":  sql = "select * from  textbooksAds " + whereClause;
-								ST_Ads = DBUtility_TextBookUniform.getTextbookAdsList(sql, false, false);
-								break;
-					case "SU":	sql = "select * from  uniformAds " + whereClause;
-								SU_Ads = DBUtility_TextBookUniform.getUniformAdsList(sql, false, false);
-								break;
-				}
-
+			 	if (screenCode.equals("BT")) {
+			 		sql = "select * from  textbooksAds " + whereClause;
+					BT_Ads = DBUtility_TextBookUniform.getTextbookAdsList(sql, false, false);
+			 	} else if (screenCode.equals("BU")) {
+			 		sql = "select * from  uniformAds " + whereClause; 
+					BU_Ads = DBUtility_TextBookUniform.getUniformAdsList(sql, false, false);
+			 	} else if (screenCode.equals("ST")) {
+			 		sql = "select * from  textbooksAds " + whereClause;
+					ST_Ads = DBUtility_TextBookUniform.getTextbookAdsList(sql, false, false);
+			 	} else if (screenCode.equals("SU")) {
+			 		sql = "select * from  uniformAds " + whereClause;
+					SU_Ads = DBUtility_TextBookUniform.getUniformAdsList(sql, false, false);
+			 	}
+				
+			 		
+		
 				/* Now find the matching ads (search results) for one of the above lists */
 				populateSearchResults(screenCode);
 				return screenCode;

@@ -18,12 +18,18 @@ import com.opensymphony.xwork2.Preparable;
 public class GeaBasicAdAction  extends SearchResultsAction implements Preparable {
 
 	private void insertAdInDatabase(String screenCode)  throws SQLException, ClassNotFoundException {
-		switch(screenCode) {
-			case "BT":DBUtility_TextBookUniform.insertTextbookAdDetails(BT_Ads);break;
-			case "BU":DBUtility_TextBookUniform.insertUniformAdDetails(BU_Ads); break;
-			case "ST":DBUtility_TextBookUniform.insertTextbookAdDetails(ST_Ads);break;
-			case "SU":DBUtility_TextBookUniform.insertUniformAdDetails(SU_Ads); break;
-		}
+		
+	 	if (screenCode.equals("BT")) {
+	 		DBUtility_TextBookUniform.insertTextbookAdDetails(BT_Ads);
+	 	} else if (screenCode.equals("BU")) {
+	 		DBUtility_TextBookUniform.insertUniformAdDetails(BU_Ads);
+	 	} else if (screenCode.equals("ST")) {
+	 		DBUtility_TextBookUniform.insertTextbookAdDetails(ST_Ads);
+	 	} else if (screenCode.equals("SU")) {
+	 		DBUtility_TextBookUniform.insertUniformAdDetails(SU_Ads);
+	 	}
+		
+		
 	}
 
 	/* common Form Fields */

@@ -43,28 +43,32 @@ public class SearchResultsAction extends ActionSupport implements SessionAware {
 	
 	
 	protected void populateSearchResults(String screenCode)  throws SQLException, ClassNotFoundException {
-		switch(screenCode) {
-			case "BT":  searchResultsFor_BT_Ads=DBUtility_TextBookUniform.searchTextbookAdResponses(BT_Ads, false, true);
-						for (int i=0;i<BT_Ads.size();i++) {
-							BT_Ads.set(i, GeaTextbookCodeValueUtility.getScreenValueFromDatabaseCodes(BT_Ads.get(i)));
-						}
-						break;
-			case "BU":  searchResultsFor_BU_Ads=DBUtility_TextBookUniform.searchUniformAdResponses(BU_Ads, false);
-						for (int i=0;i<BU_Ads.size();i++) {
-							BU_Ads.set(i, GeaUniformCodeValueUtility.getScreenValueFromDatabaseCodes(BU_Ads.get(i)));
-						}
-						break;
-			case "ST":  searchResultsFor_ST_Ads=DBUtility_TextBookUniform.searchTextbookAdResponses(ST_Ads, true, true);
-						for (int i=0;i<ST_Ads.size();i++) {
-							ST_Ads.set(i, GeaTextbookCodeValueUtility.getScreenValueFromDatabaseCodes(ST_Ads.get(i)));
-						}
-						break;
-			case "SU":	searchResultsFor_SU_Ads=DBUtility_TextBookUniform.searchUniformAdResponses(SU_Ads, true);
-						for (int i=0;i<SU_Ads.size();i++) {
-							SU_Ads.set(i, GeaUniformCodeValueUtility.getScreenValueFromDatabaseCodes(SU_Ads.get(i)));
-						}
-						break;
-		}
+		
+	 	
+	 	
+	 		if (screenCode.equals("BT")) {
+				searchResultsFor_BT_Ads=DBUtility_TextBookUniform.searchTextbookAdResponses(BT_Ads, false, true);
+				for (int i=0;i<BT_Ads.size();i++) {
+					BT_Ads.set(i, GeaTextbookCodeValueUtility.getScreenValueFromDatabaseCodes(BT_Ads.get(i)));
+				}
+	 		} else if (screenCode.equals("BU")) {
+	 			searchResultsFor_BU_Ads=DBUtility_TextBookUniform.searchUniformAdResponses(BU_Ads, false);
+				for (int i=0;i<BU_Ads.size();i++) {
+					BU_Ads.set(i, GeaUniformCodeValueUtility.getScreenValueFromDatabaseCodes(BU_Ads.get(i)));
+				}
+		 	} else if (screenCode.equals("ST")) {
+		 		searchResultsFor_ST_Ads=DBUtility_TextBookUniform.searchTextbookAdResponses(ST_Ads, true, true);
+				for (int i=0;i<ST_Ads.size();i++) {
+					ST_Ads.set(i, GeaTextbookCodeValueUtility.getScreenValueFromDatabaseCodes(ST_Ads.get(i)));
+				}
+		 	} else if (screenCode.equals("SU")) {
+		 		searchResultsFor_SU_Ads=DBUtility_TextBookUniform.searchUniformAdResponses(SU_Ads, true);
+				for (int i=0;i<SU_Ads.size();i++) {
+					SU_Ads.set(i, GeaUniformCodeValueUtility.getScreenValueFromDatabaseCodes(SU_Ads.get(i)));
+				}
+		 	}
+		 			
+		
 	}
 	
 	/* getters and setters */
